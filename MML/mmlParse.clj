@@ -29,31 +29,32 @@
 	(list name  lists))
 
 ;Make a structure based on an implicit object and a list of values.
-(defn make-struct [parent vallist]
+(defn make-struct [name parent vallist]
 "Makes an explicit object where the names of a template are the lookup keys."
 (loop [pl (second parent), vl vallist, col '()]
-  (if (empty? pl) (make-expl-obj (first parent) col);((x y) (x y))
+  (if (empty? pl) (make-expl-obj name col);((x y) (x y))
     (recur (rest pl) 
            (rest vl)
            (conj col (list (first pl) (first vl)))))))
 
 (defn make-expl-list [name set]
+  (println "Made it post-library")
   "Parses the strings of a set that would be found in a file to make an explicit object."
   (make-expl-obj name (loop [ll set, col '()]
                         (if (bad? ll) col
                           (recur (rest ll)
                                  (conj col (list (after (first ll) ":" " ") (after (first ll) "-"))))))))
 
-(defn make-implicit-list [name set]
+(defn make-impl-list [name set]
   "Makes an implicit object or a structure based on input"
-  (make-impl-obj name (loop [ll set, col '()]
+  (make-impl-obj name (loop [ll (rlist set), col '()]
                         (if (bad? ll) col 
                           (recur (rest ll)
                                  (conj col (after (first ll) "-")))))))
 
-(defn make-structure-list [name set from]
+(defn make-struct-list [name set from]
   "Make a structure with the name, a set, and the object which it comes from"
-  (make-struct from (loop [ll set, col '()]
+  (make-struct name from (loop [ll set, col '()]
                       (if (bad? ll) (rlist col)
                         (recur (rest ll)
                                (conj col (after (first ll) "-")))))))
