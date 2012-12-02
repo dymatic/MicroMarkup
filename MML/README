@@ -8,14 +8,12 @@ MicroMarkup is what I call a resource language. Like what you would consider a c
 It's not quite markup, but it is more than just a resource. Thus, "MicroMarkup".
 Using MicroMarkup a programmer can create an external mapping of Clojure resources and a custom data type called an instance, along with templates.
 
-MicroMarkup uses a very light syntax that is much up to the person using it. Over the coming months, I will be adding support that even I want, and I have only used it for a day. The ability to use C-style brackets instead of one-per-line.
+MicroMarkup uses a very light syntax that is much up to the person using it. C-style braces now work! As do types. 
 
 ===Future plans
 In order of importance:
 
-Documentation ~ Dec 5th
-Code cleanup / refactoring ~ Dec 7th
-C-style braces ~ Dec 15th
+HUGE code cleanup (especially for the file reader) ~ Dec 5th
 Vector support ~ Dec 30th
 MML file write support ~ Jan 15th
 
