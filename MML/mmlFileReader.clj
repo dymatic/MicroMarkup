@@ -1,11 +1,15 @@
-(ns mml.mmlReader)
+(ns mml.mmlReader
+  (use 'lib.libFiles)
+  (use 'lib.libLists)
+  (use lib.libStrings)
+  (use 'mml.mmlParse))
 ;Reads microMarkup files, returning objects.
 
 
 (defn ref-obj [master-list name]
   "Emerge and object from the master list."
   (cond
-    (bad? master-list) nil
+    (= master-list ()) nil
     (= (first (first master-list)) name) (first master-list)
     :else
     (recur (rest master-list) name)))
@@ -15,7 +19,7 @@
 (defn read-file [filename];Fix this function later
   "Returns a list of objects found within the file."
   (loop [col '(), ll (lines filename)]
-    (if (bad? ll) (remove-from col nil)
+    (if (= ll ()) (remove-from col nil)
       (recur (conj col (cond
                          (.contains 
                            (first ll) 

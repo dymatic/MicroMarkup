@@ -6,9 +6,9 @@
 ;Creator: Norton "Dymatic" Jenkins
 ;Conception: 10-17-12
 
-(ns mml.mmlParse)
-
-(import lib);Mainly used for string manipulation
+(ns mml.mmlParse
+  (use 'lib.libLists)
+  (use 'lib.libStrings))
 
 (defn apply-type [x & y]
   "Apply the correct type of x as specified."
@@ -26,7 +26,7 @@
 (defn make-expl-obj [name lis]
 "Makes an explicit object from the name and the list of items"
 	(loop [ll  lis, col '{}]
-   (if (bad? ll) 
+   (if (= ll ()) 
      (list name col)
      (recur 
        (rest ll)
@@ -51,20 +51,20 @@
 (defn make-expl-list [name set]
   "Parses the strings of a set that would be found in a file to make an explicit object."
   (make-expl-obj name (loop [ll set, col '()]
-                        (if (bad? ll) col
+                        (if (= ll ()) col
                           (recur (rest ll)
                                  (conj col (list (after (first ll) ":" " ")  (after (first ll) "-"))))))))
 
 (defn make-impl-list [name set]
   "Makes an implicit object or a structure based on input"
   (make-impl-obj name (loop [ll (rlist set), col '()]
-                        (if (bad? ll) col 
+                        (if (= ll ()) col 
                           (recur (rest ll)
                                  (conj col (apply-type (after (first ll) "-"))))))))
 
 (defn make-struct-list [name set from]
   "Make a structure with the name, a set, and the object which it comes from"
   (make-struct name from (loop [ll set, col '()]
-                      (if (bad? ll) (rlist col)
+                      (if (= ll ()) (rlist col)
                         (recur (rest ll)
                                (conj col (after (first ll) "-")))))))
