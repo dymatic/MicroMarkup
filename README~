@@ -1,0 +1,13 @@
+# mml
+MicroMarkup. A new frontier of languages pushing the boundaries of human readability with searchable data structures. Now with extra lein!
+
+# Version
+1.6 was released today with absolutely no changes over 1.5 except for one notable change. It's lein'd into a .jar for real usage. Enjoy.
+
+## Usage
+See the wiki. You have a .mml (move out, marathon markup) that will map Clojure (and ultimitely Java) data types with three kinds of objects.
+
+FIXME: write
+
+## License
+GNU GPL v2. Any free software developer is allowed to use this project in its entirety or in snippets it open source applications, with the exception of the lib namespace which can be used in proprietary applications.
