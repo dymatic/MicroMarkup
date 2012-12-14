@@ -13,20 +13,11 @@ MicroMarkup uses a very light syntax that is much up to the person using it. C-s
 ===Future plans
 In order of importance:
 
-HUGE code cleanup (especially for the file reader) ~ Dec 5th
-Vector support ~ Dec 30th
+Vector / List support ~ Dec 30th
 MML file write support ~ Jan 15th
 
 ===License
 This is licensed under the GNU GPL V2 license. It was a lot of work to put together, and I want to see the community benefit from it; not corporations that could write a far more efficient version. 
 
-===History
-And here comes the boring part. Every project has a backstory, and this one is not exempt from that rule-of-thumb. Heck, GNU was invented on a snap decision from a very angry RMS!
-
-Three months after the first version was released, I had started work on the Spell package manager. It was to integrate with Linux systems and update, download, and install packages. Fresh to Clojure, I was eager to get into my first true functional project to rival that of my C++ bot.
-
-Now, a key part of package management is the database. And at the time I had 0 experience with SQL, so I decided to reinvent the wheel and roll my own: MetadataMarkup.
-
-When the templates were all set up for MML, the metadata markup language, I went to github and made the page. That's when it hit me. MicroMarkup! The name stuck, and I began work.
-
-Stalling for weeks at a time, I slugged through reinforcing my core Clojure libraries and developing MMLparse (in the end, MMLparse had to be completely rewritten. As did filereader). Then, on December 1st, two months after the project started, it came to an end when I put the final nail in the last bug's coffin. Without even further testing, I wrote the README and pushed to github, and the rest is history / future.
+===Help
+The wiki and website are now up under my github page. For more information on mml, go and see http://dymatic.github.com/MicroMarkup/

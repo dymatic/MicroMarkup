@@ -8,7 +8,8 @@
 
 (ns mml.mmlParse
   (use 'lib.libLists)
-  (use 'lib.libStrings))
+  (use 'lib.libStrings)
+  (use 'lib.libFiles))
 
 (defn apply-type [x & y]
   "Apply the correct type of x as specified."
